@@ -1,0 +1,652 @@
+@charset "UTF-8"; /*문자열 인코딩 방식*/
+
+/*메인 폰트의 url 지정*/
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/*
+초기값 설정 -> 가장 먼저 해줘야 한다.
+(html, html *) = html과 그 밖의 모든 영역이라는 의미*/
+html, html * {
+font-size:16px; /*10px = 1rem*/	
+letter-spacing:-0.5px; /*글자 간격*/
+word-spacing:3px; /*단어 간격*/
+font-weight:400; /*글자 두께*/
+font-family: 'Pretendard-Regular';
+margin:0;
+color:#333;
+box-sizing:border-box;
+/*-> 원래사이즈를 유지하는 형태*/
+}
+
+.kyw{
+text-align:left;
+}
+
+h1{
+font-size:3rem;
+font-weight:600;
+color:black;
+}
+
+h2{
+font-size:2rem;
+color:black;
+}
+
+h3{
+font-size:1.5rem;
+color:black;
+}
+
+/*
+선택기
+-> 타입을 명확하게 명시해줘야 한다.*/
+input[type=checkbox], input[type=radio], input[type=range]{
+	accent-color:pink;
+}
+
+.wrap{
+width:100%; /*가로 크기*/
+height:300px; /*높이*/
+border:1px solid #333; /*테두리*/
+display:flex; /*가운데 정렬*/
+/*coral의 부모가 wrap이므로 wrap에서 가운데정렬을 설정해줌*/
+justify-content:center; /*가로축 가운데정렬*/
+align-items:center; /*세로축 가운데정렬*/
+}
+
+/*id가 main인 div를 설정*/
+#main div{
+width:70px;
+height:70px;	
+}
+
+#main{
+width:300px;
+height:300px;
+border:1px solid #c3c3c3;
+display:flex;
+flex-wrap:wrap;
+align-items:center;
+}
+
+.coral{
+background-color:coral;
+}
+
+.lightblue{
+background-color:lightblue;
+}
+
+.pink{
+background-color:pink;
+}
+
+.w-25{width:25%;}
+.w-35{width:35%;}
+.w-40{width:40%;}
+
+.align-items{
+display:flex;
+width:100%;
+height:300px;
+border:1px dotted #333;
+align-items:baseline;
+}
+
+.align-self{
+width:220px;
+height:300px;
+border:1px solid black;
+display:flex;
+align-items:flex-end;
+}
+
+#myblue{
+align-self:center;
+}
+
+/*애니메이션*/
+@keyframes myani{
+	from{left:0px;}
+	to{left:1820px;}
+}
+
+.aa{
+width:100px; height:100px;
+margin-top:-60px;
+background-color:red;
+position:absolute;
+animation:myani 2s infinite;
+/*애니메이션 이름 시간 무한반복*/
+}
+
+.asp{
+width:100px;
+background-color:brown;
+aspect-ratio:4/16;
+}
+
+/*B*/
+.background{
+background-color:lightblue;
+width:400px;
+height:400px;
+display:flex;
+justify-content:center;
+align-items:center;
+background-size:cover;
+}
+
+.transbox{
+background-color:rgba(255,255,255,.4);
+-webkit-backdrop-filter:blur(10px);
+/*-> 호환성을 위한 것(크롬, 사파리)*/
+-ms-backdrop-filter:blur(10px);
+-o-backdrop-filter:blur(10px);
+-moz-backdrop-filter:blur(10px);
+backdrop-filter:blur(10px);
+padding:20px;
+margin:30px;
+font-weight:bold;
+}
+
+.ry180{
+position:relative;
+height:60px;
+width:60px;
+background-color:red;
+transform:rotateY(180deg);	
+}
+
+.hidden{
+-webkit-backface-visibility:hidden;
+backface-visibility:hidden;
+}
+
+
+
+.bgimg{
+background-image:url("../img/bug.jpg");
+width:400px;
+height:400px;
+}
+
+.bgrp{
+background:url("../img/bug.jpg")no-repeat;
+width:100%;
+height:300px;
+}
+
+.cover{
+background:url("../img/bug.jpg");
+background-size:cover;
+}
+
+.bbox, .cbox{
+width:300px;
+height:50px;
+border:1px solid black;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:10px;
+}
+
+.bbox{
+box-sizing:border-box;
+/*-> 원래사이즈를 유지하는 형태*/	
+}
+
+.cbox{
+box-sizing:content-box;
+/*-> 내용물에 따라 사이즈가 달라짐*/
+}
+
+/*0320*/
+.border-radius{
+width:100px;
+height:100px;
+background:violet;
+border-radius:50%;
+/*-> 어떤 엘리먼트에서도 테두리를 동그라미로 : border-radius:50% */
+}
+
+.block-size{
+background:lightblue;
+border:solid black 1px;
+width:100px;
+block-size:200px;
+/*-> CSS에서 칭하는 세로크기에 따른 명명(일반적인 세로크기는 height)*/
+}
+
+.nb{
+border:1px solid #ccc;
+padding:5px;
+}
+
+.border-block{
+border-block:4px dotted blue;
+}
+
+/*탑 버튼*/
+.top-btn{
+background:black;
+color:white;
+padding:10px;
+right:20px; /*-> 오른쪽을 기준으로 20px떨어뜨린다.*/
+bottom:20px; /*-> 아래를 기준으로 20px떨어뜨린다.*/
+position:fixed; /*-> 위치 고정*/
+/*-> 스크롤을 올리던 내리던 위치가 고정된다.
+  -> document자체에 위치를 고정시키는 것*/
+border-radius:5px;
+}
+
+a, a:hover, a:active, a:visited{
+color:inherit;/*-> 부모의 색상값을 상속*/
+text-decoration:none;/*-> 밑줄 생기지 않도록*/
+}
+/*
+a:hover : 마우스 가져다댔을 때
+a:active : 마우스로 클릭했을 때
+a:visited : 방문했을 때
+*/
+
+.box-shadow{
+box-shadow:2px 2px 10px #888;
+/*       ->x값  y값 블러값 색상*/
+}
+
+.text-shadow{
+text-shadow:2px 2px 10px #888;
+/*        ->x값  y값 블러값 색상*/
+}
+
+/*caret-color*/
+input[type=text]{
+caret-color:blue;
+}
+
+.newspaper{
+columns:200px 4;
+/*column-count:4;*/
+column-gap:50px;
+}
+
+/*before, after*/
+.before:before{
+content:"<";	
+}
+
+.after:after{
+content:">";
+}
+
+body{counter-reset:my-counter;}
+h5:before{
+counter-increment:my-counter;
+content:"section "counter(my-counter)". ";
+}
+
+.cursor{
+background:blue;
+padding:10px;
+color:white;
+font-size:1rem;
+transition:all 1s ease-in-out;
+}
+
+.cursor:hover{
+background:violet;
+font-size:3rem;
+cursor:pointer;
+}
+
+/*text방향*/
+.rtl{direction:rtl;} /*-> rtl = right to left*/
+.text-right{text-align:right;}
+
+.control li{
+float:right;
+padding:5px 16px;
+}
+
+.none, .block, .inline{
+background:green;
+padding:10px;
+margin-bottom:10px;
+}
+.none{
+display:none;
+}
+.block{
+display:block;
+}
+.inline li{
+display:inline-block;
+}
+
+.empty{
+border:1px solid #ccc;
+empty-cells:hide;
+border-collapse:collapse; /*-> 중복되는 테두리를 하나로 합침*/
+}
+
+/*filter*/
+.filter{
+filter:grayscale(100%);
+opacity:.5;
+transition:all .5s ease-in-out;
+}
+.filter:hover{
+filter:grayscale(0%);
+opacity:1;
+cursor:pointer;
+}
+
+/*디스플레이
+.float > div => float클래스 속 div 라는 의미*/
+.float > div{
+border:1px solid black;
+background:yellow;
+float:right;
+box-sizing:border-box;
+width:700px;
+}
+.d-flex{
+margin-top:60px;
+display:flex;
+}
+.d-flex > div{
+width:1000px;
+height:100px;
+border:1px solid black;
+}
+
+.inline-flex{
+display:inline-flex;
+}
+.inline-flex > div{
+border:1px #ccc;
+background:red;
+}
+
+
+/*0321*/
+.lightgreen{
+background-color:lightgreen;
+}
+
+#MAIN{
+width:300px;
+height:300px;
+border:1px solid black;
+display:flex;
+}
+#MAIN div{
+-webkit-flex:1; /*-> 사파리를 위한 flex설정*/
+flex:1; /*-> 가로폭을 의미*/
+}
+
+.pic{
+width:300px;
+height:100px;
+border:1px solid #c3c3c3;
+display:flex;
+}
+.pic > div{
+flex-grow:0;
+flex-shrink:0;
+flex-basis:50px;
+}
+.khaki{background-color:khaki;}
+.lightgrey{background-color:lightgrey;}
+
+.pic div:nth-of-type(2){ /*-> pic클래스의 2번째 div를 의미*/
+flex-basis:100px;
+}
+
+.d-flex{
+display:flex;
+}
+.d-flex div{
+width:100px;
+}
+.w-100{
+width:100%;
+}
+.border{
+border:1px solid black;
+}
+.flex-direction{
+flex-direction:column-reverse;
+}
+
+.flex-flow{
+width:200px; height:200px;
+border:1px solid #c3c3c3;
+display:flex;
+flex-flow:row-reverse wrap;
+}
+.flex-flow > div{
+width:60px;
+height:30px;	
+}
+
+.flex-grow{
+width:350px;
+height:100px;
+border:1px solid #c3c3c3;
+display:flex;
+}
+.flex-grow > div{
+width:60px;
+height:30px;
+}
+.flex-grow div:nth-of-type(1){flex-grow:1;}
+.flex-grow div:nth-of-type(2){flex-grow:3;}
+.flex-grow div:nth-of-type(3){flex-grow:1;}
+.flex-grow div:nth-of-type(4){flex-grow:1;}
+.flex-grow div:nth-of-type(5){flex-grow:1;}
+
+.past{
+font:italic small-caps bold 12px/30px Georgia serif;
+/*   style   variant  weight   size   height family*/
+}
+
+
+/*Grid*/
+.grid-container{
+background-color:#2196F3;
+padding:10px;
+display:grid;
+grid:150px / 1fr 1fr 3fr 1fr 1fr 1fr;
+/*grid:150px / auto auto auto;
+-> 3칸짜리 2줄*/
+/*grid:150px / auto auto auto auto auto;
+-> 5칸짜리 2줄 -> 2번쨰 줄의 첫번째 칸만 채워지고 나머지는 빈칸*/
+grid-gap:10px;
+}
+.grid-container > div{
+background-color:rgba(255,255,255,.8);
+text-align:center;
+padding:20px 0;
+font-size:30px;
+}
+
+
+/*0322*/
+/*
+.item1{grid-area:header;}
+.item2{grid-area:menu;}
+.item3{grid-area:main;}
+.item4{grid-area:right;}
+.item5{grid-area:footer;}
+*/
+
+.name-space > div{
+background:rgba(255,255,255,.8);
+text-align:center;
+padding:20px 0;
+font-size:30px;
+}
+
+.name-space{
+background-color:rgba(0,0,180,.9);
+display:grid;
+grid:
+'header header header header header header'
+'menu main main main right right'
+'menu footer footer footer footer footer';
+grid-gap:10px;
+padding:10px;
+}
+
+.division{
+display:grid;
+grid-template-columns:auto auto auto auto; /*-> 4칸*/
+grid-gap:10px; /*-> 간격 10픽셀*/
+background:#2196F3;
+padding:10px;
+}
+.division > div{
+background-color:rgba(255,255,0,.7); /*red-255,blue-255,green-0 -> 노란색*/
+text-align:center;
+padding:20px 0;
+font-size:30px;
+}
+
+.item1{
+grid-area:2 / 1 / span 2 / span 3;
+/*-> itme1이 2행 1열에서 시작, 2행 3열에 걸쳐 있도록*/
+}
+
+
+.auto{
+display:grid;
+grid-auto-coulmns:50px;
+grid-gap:10px;
+background-color:#2196F3;
+padding:10px;
+}
+.auto > div{
+background-color:rgba(255,255,255,.8);
+text-align:center;
+padding:20px 0;
+font-size:30px;
+}
+.it1{grid-area:1 / 1;}
+.it2{grid-area:1 / 2;}
+.it3{grid-area:1 / 3;}
+.it4{grid-area:2 / 1;}
+.it5{grid-area:2 / 2;}
+.it6{grid-area:2 / 3;}
+
+
+.gaf{
+display:grid;
+grid-template-columns:auto auto auto; /*-> 3칸*/
+grid-template-rows:auto auto; /*-> 2줄*/
+grid-auto-flow:column;
+grod-gap:10px;
+background-color:#2196F3;
+padding:10px;
+}
+.gaf > div{
+background:rgba(255,255,255,.8);
+text-align:center;
+padding:20px 0;
+font-size:30px;
+}
+
+
+.rowg{
+display:grid;
+grid-auto-rows:150px;
+grid-gap:10px;
+background-color:#2196F3;
+padding:10px	
+}
+.rowg > div{
+background-color:rgba(255,255,255,.8);
+text-align:center;
+padding:20px 0;
+font-size:30px;
+}
+.r1{grid-area:1/1;}
+.r2{grid-area:1/2;}
+.r3{grid-area:1/3;}
+.r4{grid-area:2/1;}
+.r5{grid-area:2/2;}
+.r6{grid-area:2/3;}
+
+
+.gc{
+display:grid;
+grid-template-columns:auto auto auto auto; /*-> 4칸*/
+grid-gap:10px;
+background-color:#2196F3;
+padding:10px;
+}
+.gc > div{
+background-color:rgba(255,255,255,.8);
+text-align:center;
+padding:20px 0;
+font-size:30px;
+}
+.g1{grid-column:1 / span 2;} /*-> 1열에서 시작, 2열까지 걸쳐있도록 설정*/
+
+
+.end{
+display:grid;
+grid-template-columns:auto auto auto auto;
+grid-gap:10px;
+grid-column-gap:50px;
+background-color:#2196F3;
+padding:10px;
+}
+.end > div{
+background-color:rgba(255,255,255,.8);
+text-align:center;
+padding:20px 0;
+font-size:30px;
+}
+.e1{grid-column-end:span 3;} /*-> e1의 열 수를 3으로 확장*/
+
+
+.start{
+display:grid;
+grid-template-columns:auto auto auto auto;
+grid-gap:10px;
+grid-column-gap:50px;
+background-color:#2196F3;
+padding:10px;
+}
+.start > div{
+background-color:rgba(255,255,255,.8);
+text-align:center;
+padding:20px 0;
+font-size:30px;	
+}
+.s1{grid-column-start:3;} /*-> s1이 같은 행 3열에서 시작하도록 설정*/
+
+
+.rowss{
+display:grid;
+grid-template-columns:auto auto auto auto;
+grid-template-rows:100px 300px; /*-> 1행크기:100px, 200크기:300px*/
+grid-gap:10px;
+background-color:#2196F3;
+padding:10px;	
+}
+.rowss > div{
+background-color:rgba(255,255,255,.8);
+text-align:center;
+padding:20px 0;
+font-size:30px;		
+}
